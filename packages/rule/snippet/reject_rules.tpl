@@ -1,0 +1,14 @@
+DOMAIN,download.parallels.com
+DOMAIN,update.parallels.com
+DOMAIN,desktop.parallels.com
+DOMAIN,download.parallels.com.cdn.cloudflare.net
+DOMAIN,update.parallels.com.cdn.cloudflare.net
+DOMAIN,desktop.parallels.com.cdn.cloudflare.net
+DOMAIN,www.parallels.cn
+DOMAIN,www.parallels.com
+DOMAIN,reportus.parallels.com
+DOMAIN,parallels.com
+DOMAIN,parallels.cn
+DOMAIN,pax-manager.myparallels.com
+DOMAIN,myparallels.com
+DOMAIN,my.parallels.com

@@ -1,0 +1,14 @@
+{
+  "name": "@rule_generate/config",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "generate": "cross-env SURGIO_NETWORK_TIMEOUT=50000 surgio generate",
+    "upload": "surgio upload"
+  },
+  "dependencies": {
+    "@rule_generate/rule": "workspace:^",
+    "@surgio/gateway": "^2.0.1",
+    "surgio": "^3.3.0"
+  }
+}

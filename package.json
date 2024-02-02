@@ -1,0 +1,23 @@
+{
+  "name": "rule_generate",
+  "version": "1.0.0",
+  "private": true,
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "config:generate": "pnpm -F @rule_generate/config generate",
+    "config:upload": "pnpm -F @rule_generate/config upload",
+    "rule:clash": "pnpm -F @rule_generate/rule clash",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.56.0"
+  }
+}

@@ -1,0 +1,65 @@
+# update rules every day
+name: update-rules
+
+on:
+  schedule:
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # check it to your workflow can access it
+      # from: https://github.com/actions/checkout
+      - name: Checkout repo
+        uses: actions/checkout@master
+
+      # from: https://github.com/actions/setup-node
+      - name: Setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Generate rules
+        run: |
+          export TZ='Asia/Shanghai'
+          npm run rule:clash
+          npm run config:generate
+          npm run config:upload
+
+      - name: pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: ./packages/config/dist
+          clean: false
+      
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          retain_days: 1
+          keep_minimum_runs: 0
