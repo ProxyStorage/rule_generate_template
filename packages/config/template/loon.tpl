@@ -141,7 +141,7 @@ GEOIP,CN,{{ customParams.proxyName.Direct }}
 # Coze
 {{ snippet("../../../packages/rule/snippet/coze_rules.tpl").main(customParams.proxyName.Coze) }}
 # Porn
-{{ snippet("../../../packages/rule/snippet/pron_rules.tpl").main(customParams.proxyName.PN) }}
+{{ snippet("../../../packages/rule/snippet/porn_rules.tpl").main(customParams.proxyName.PN) }}
 # Emby
 {{ snippet("../../../packages/rule/snippet/emby_rules.tpl").main(customParams.proxyName.Emby) }}
 FINAL,{{ customParams.proxyName.Final }}
