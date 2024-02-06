@@ -1,4 +1,3 @@
-DOMAIN,iadmat.nosdn.127.net
 DOMAIN,netease.ugcvideoss.ourdvs.com
 DOMAIN-SUFFIX,163yun.com
 DOMAIN-SUFFIX,api.iplay.163.com
@@ -10,7 +9,6 @@ DOMAIN-SUFFIX,music.163.com
 DOMAIN-SUFFIX,music.163.com.163jiasu.com
 DOMAIN-SUFFIX,yun-app.net
 IP-CIDR,101.71.154.241/32
-IP-CIDR,103.126.92.13/32
 IP-CIDR,103.126.92.132/31
 IP-CIDR,112.13.119.17/32
 IP-CIDR,112.13.119.18/32

@@ -24,10 +24,8 @@ PROCESS-NAME,findmydevice-user-agent
 PROCESS-NAME,fmfd
 PROCESS-NAME,mapspushd
 PROCESS-NAME,netbiosd
-PROCESS-NAME,storedownloadd
 PROCESS-NAME,trustd
 PROCESS-NAME,com.apple.geod
 PROCESS-NAME,Music
-PROCESS-NAME,News
 PROCESS-NAME,LookupViewService
 PROCESS-NAME,TV
