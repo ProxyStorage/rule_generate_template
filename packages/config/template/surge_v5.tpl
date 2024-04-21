@@ -22,7 +22,7 @@ hijack-dns = *:53
 dns-server = 119.29.29.29, 223.5.5.5, 223.6.6.6, 114.114.114.114
 read-etc-hosts = true
 doh-skip-cert-verification = true
-encrypted-dns-server = quic://223.5.5.5:853,quic://223.6.6.6:853
+encrypted-dns-server = quic://dns.alidns.com
 encrypted-dns-follow-outbound-mode = true
 
 allow-wifi-access = true
@@ -88,6 +88,7 @@ WARP Other = wireguard, section-name=Cloudflare, underlying-proxy={{ customParam
 {{ customParams.proxyName.PN }} = select, {{ customParams.proxyName.Emby }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.Emby }} = select, {{ customParams.proxyName.Proxy }}, {{ customParams.proxyName.Direct }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.SpeedTest }} = select, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Proxy }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
+{{ customParams.proxyName.Download }} = select, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Proxy }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.Direct }} = select, DIRECT,{{ customParams.proxyName.Select }}, REJECT, no-alert=0, hidden=0
 {{ customParams.proxyName.Reject }} = select, REJECT, REJECT-TINYGIF, DIRECT, no-alert=0, hidden=0, include-all-proxies=0
 {{ customParams.proxyName.Final }} = select, {{ customParams.proxyName.Proxy }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
@@ -101,8 +102,6 @@ WARP Other = wireguard, section-name=Cloudflare, underlying-proxy={{ customParam
 {{ customParams.proxyName.AmericanSelect }} = select, no-alert=0, hidden=0, policy-regex-filter=^(?=.*((?i)🇺🇸|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|UnitedStates)).*$, include-all-proxies=0, include-other-group="{{ customParams.proxyName.SubNodesSelect }}"
 {{ customParams.proxyName.OtherSelect }} = select, policy-regex-filter=^(?!.*((?i)🇭🇰|🇨🇳|🇯🇵|🇰🇷|🇸🇬|🇺🇸)).*$, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.proxyName.SubNodesSelect }}"
 [Rule]
-# 本地网络直连
-RULE-SET,LAN,{{ customParams.proxyName.Direct }}
 # 公司业务域名
 {{ snippet("../../../packages/rule/snippet/company_rules.tpl").main(customParams.proxyName.Company) }}
 # 自定义直连域名
@@ -110,6 +109,9 @@ RULE-SET,LAN,{{ customParams.proxyName.Direct }}
 # 规则修正
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Direct/Direct.list,{{ customParams.proxyName.Direct }}
 AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
+# 隐私保护
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Privacy/Privacy_All.list,{{ customParams.proxyName.Reject }}
+RULE-SET,https://raw.githubusercontent.com/Invincible-Tyrannosaurus/clash-rule/main/Reject.list,{{ customParams.proxyName.Reject }}
 # adrules
 RULE-SET,https://adrules.top/adrules.list,{{ customParams.proxyName.Reject }}
 # 微信
@@ -161,6 +163,8 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Speedtest/Speedtest.list,{{ customParams.proxyName.SpeedTest }}
 # GEOIP数据库内国内IP-直连
 # GEOIP,CN,{{ customParams.proxyName.Direct }}
+# 本地网络直连
+RULE-SET,LAN,{{ customParams.proxyName.Direct }}
 # > ASN China
 RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list,{{ customParams.proxyName.Direct }}
 # 以上规则未包含的其他访问
@@ -171,7 +175,7 @@ skip-server-cert-verify = true
 tcp-connection = true
 h2 = true
 hostname = interface.music.163.com, alist.antmoe.com:443, -*.facebook.com, -*.instagram.com, -*.twitter.com, -*.tiktokv.com, -*.snssdk.com, -*.pstatp.com
-hostname-disabled = gateway.icloud.com, gateway.icloud.com.cn, weather-data.apple.com, buy.itunes.apple.com
+hostname-disabled = gateway.icloud.com, gateway.icloud.com.cn, weather-data.apple.com, buy.itunes.apple.com, pan.baidu.com
 ca-passphrase = 835E33AE
 ca-p12 = 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
 

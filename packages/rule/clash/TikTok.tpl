@@ -22,6 +22,7 @@ DOMAIN-SUFFIX,tiktokd.net
 DOMAIN-SUFFIX,tiktokd.org
 DOMAIN-SUFFIX,tiktokmusic.app
 DOMAIN-SUFFIX,tiktokv.com
+DOMAIN-SUFFIX,tiktokv.us
 DOMAIN-KEYWORD,musical.ly
 DOMAIN-KEYWORD,tiktok
 PROCESS-NAME,com.zhiliaoapp.musically

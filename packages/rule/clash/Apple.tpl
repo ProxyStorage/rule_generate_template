@@ -15,7 +15,6 @@ IP-CIDR,198.183.17.0/24
 IP-CIDR,205.180.175.0/24
 IP-CIDR,63.92.224.0/19
 IP-CIDR,65.199.22.0/23
-PROCESS-NAME,/System/Library/PrivateFrameworks/Lookup.framework/Versions/A/XPCServices/LookupViewService.xpc/Contents/MacOS/LookupViewService
 PROCESS-NAME,CoreLocationAgent
 PROCESS-NAME,WeatherWidget
 PROCESS-NAME,apsd
