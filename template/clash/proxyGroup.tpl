@@ -120,4 +120,4 @@
 
 - name: {{ customParams.proxyName.SubNodesSelect }}
   type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all) | json }}
+  proxies: {{ getClashNodeNames(nodeList,customFilters.all,[]) | json }}

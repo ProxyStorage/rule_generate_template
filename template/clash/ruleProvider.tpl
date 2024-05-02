@@ -62,6 +62,13 @@ rule-providers:
     interval: 43200
     url: https://rule.acs.pw/clash/rule/GCDN/GCDN_no_ip_rule.list
     path: ./DreamyTZK/GCDN_no_ip_rule.txt
+  GCDN_ip_rule:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://rule.acs.pw/clash/rule/GCDN/GCDN_ip_rule.list
+    path: ./DreamyTZK/GCDN_ip_rule.txt
   ai_domain:
     type: http
     behavior: domain
@@ -195,7 +202,13 @@ rule-providers:
     interval: 43200
     url: https://rule.acs.pw/clash/rule/CCDN/CCDN_no_ip_rule.list
     path: ./DreamyTZK/CCDN_no_ip_rule.txt
-
+  CCDN_ip_rule:
+    type: http
+    behavior: classical
+    format: text
+    interval: 43200
+    url: https://rule.acs.pw/clash/rule/CCDN/CCDN_ip_rule.list
+    path: ./DreamyTZK/CCDN_ip_rule.txt
   wechat_no_ip_rule:
     type: http
     behavior: classical
