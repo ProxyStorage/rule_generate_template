@@ -1,23 +1,22 @@
 {
-  "name": "rule_generate",
+  "name": "@rule_generate/config",
   "version": "1.0.0",
-  "private": true,
   "license": "ISC",
-  "keywords": [],
   "scripts": {
-    "config:generate": "pnpm -F @rule_generate/config generate",
-    "config:upload": "pnpm -F @rule_generate/config upload",
-    "rule:clash": "pnpm -F @rule_generate/rule clash",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "no-empty-line": "node ./scripts/no-empty-line.js",
+    "generate": "cross-env SURGIO_NETWORK_TIMEOUT=50000 surgio generate",
+    "upload": "surgio upload",
+    "update": "taze major -I"
   },
   "dependencies": {
-    "axios": "^1.6.7",
-    "yamljs": "^0.3.0"
+    "@antfu/eslint-config": "^2.16.1",
+    "@surgio/gateway": "^2.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.1.1",
+    "surgio": "^3.6.6",
+    "taze": "^0.13.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.3",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.56.0"
+    "dotenv": "^16.4.5"
   }
 }
