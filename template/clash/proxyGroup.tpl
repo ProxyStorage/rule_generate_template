@@ -117,3 +117,7 @@
 - name: {{ customParams.proxyName.OtherSelect }}
   type: select
   proxies: {{ getClashNodeNames(nodeList,customFilters.otherSelectFilter) | json }}
+
+- name: {{ customParams.proxyName.SubNodesSelect }}
+  type: select
+  proxies: {{ getClashNodeNames(nodeList,customFilters.all) | json }}
