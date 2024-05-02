@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 */3 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -75,7 +78,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.SSH_PRIVATE }}
           external_repository: ProxyStorage/rule_generate
           publish_branch: gh-pages
           publish_dir: dist
