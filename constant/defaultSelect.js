@@ -1,6 +1,7 @@
 const proxyName = require('./proxyName.js')
+const { CF_WIREGUARD_PUBLICK_KEY, CF_WIREGUARD_PRIVATE_KEY } = require('./config.js')
 
-const { Warp: _Warp, Select, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect } = proxyName
+const { Warp, Select, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect } = proxyName
 /**
  * 获取所有的select
  * @param {'surge'|'loon'|'clash'} platform 平台
@@ -8,8 +9,8 @@ const { Warp: _Warp, Select, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSel
 function getAllSelect(platform) {
   const select = [HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect]
   let str = ''
-  // if (['surge', 'loon'].includes(platform))
-  //   select.unshift(Warp)
+  if (['surge', 'loon'].includes(platform) && CF_WIREGUARD_PUBLICK_KEY && CF_WIREGUARD_PRIVATE_KEY)
+    select.push(Warp)
 
   if (['clash'].includes(platform))
     select.unshift(Select)

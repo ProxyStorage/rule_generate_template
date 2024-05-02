@@ -1,3 +1,5 @@
+{% set isShowWarp = customParams.CF_WIREGUARD_PRIVATE_KEY and customParams.CF_WIREGUARD_PUBLICK_KEY %}
+
 {{ customParams.proxyName.Proxy }} = select, {{ customParams.proxyName.Select }}, {{ customParams.proxyName.Auto }}, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0
 {{ customParams.proxyName.Select }} = select, {{ customParams.allSelect }}, update-interval=0, no-alert=0, hidden=0, include-other-group="{{ customParams.allIncludeGroup }}"
 # {{ customParams.proxyName.Wifi }} = ssid, default = {{ customParams.proxyName.Proxy }}, cellular = {{ customParams.proxyName.Proxy }}, "DreamyTZK_WiFi" = DIRECT
@@ -19,7 +21,11 @@
 {% endif %}
 {{ customParams.proxyName.Emby }} = select, {{ customParams.proxyName.Proxy }}, {{ customParams.proxyName.Direct }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.SpeedTest }} = select, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Proxy }}, {{ customParams.allSelect }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
+
+{% if isShowWarp %}
 {{ customParams.proxyName.Warp }} = select, WARP HK, WARP SG, WARP JP, WARP US, WARP Other, no-alert=0, hidden=0, include-all-proxies=0
+{% endif %}
+
 {{ customParams.proxyName.CCDN }} = select, DIRECT, {{ customParams.allSelect }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.GCDN }} = select, {{ customParams.proxyName.Proxy }}, DIRECT, {{ customParams.allSelect }}, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="{{ customParams.allIncludeGroup }}"
 {{ customParams.proxyName.Direct }} = select, DIRECT,{{ customParams.proxyName.Select }}, REJECT, no-alert=0, hidden=0

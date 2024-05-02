@@ -27,7 +27,11 @@
 - RULE-SET,reject_drop_no_ip_rule,REJECT-DROP
 - RULE-SET,reject_plus_no_ip_rule,{{ customParams.proxyName.Reject }}
 - RULE-SET,wechat_no_ip_rule,DIRECT
+
+{% if customParams.PRIVATE_GIST_ID %}
 - RULE-SET,my_direct,{{ customParams.proxyName.Direct }}
+{% endif %}
+
 - RULE-SET,bilibili_no_ip_rule,{{ customParams.proxyName.BiliBili }}
 
 {% if customParams.PRIVATE_GIST_ID_COMPANY %}
