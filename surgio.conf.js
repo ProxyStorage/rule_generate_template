@@ -2,8 +2,9 @@
 
 const { utils } = require('surgio')
 const proxyName = require('./constant/proxyName')
-const defaultSelect = require('./constant/defaultSelect')
+const { getAllSelect, getAllIncludeGroup } = require('./constant/defaultSelect')
 const getEncryptDNS = require('./utils/getEncryptDNS')
+const getRuleSnippet = require('./utils/getSnippet')
 const {
   SURGIO_URL_BASE,
   SURGIP_UPLOAD_PREFIX,
@@ -16,6 +17,7 @@ const {
 } = require('./constant/config')
 
 const dns_server = ['223.5.5.5', '223.6.6.6', '119.29.29.29', '114.114.114.114']
+// const surgeSnippet = surgeSnippet( getAllSelect('surge'),getAllIncludeGroup('surge'))
 
 /**
  * 使用文档：https://surgio.js.org/
@@ -57,12 +59,12 @@ module.exports = {
       customParams: {
         ...rest,
         proxyName,
+        ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), true),
         dns_server: dns_server.join(', '),
         encrypt_dns_server: getEncryptDNS('surge').join(', '),
-        isMac: true,
         isSmart: true,
-        allSelect: defaultSelect.getAllSelect('surge'),
-        allIncludeGroup: defaultSelect.getAllIncludeGroup('surge'),
+        allSelect: getAllSelect('surge'),
+        allIncludeGroup: getAllIncludeGroup('surge'),
       },
     },
     {
@@ -73,12 +75,12 @@ module.exports = {
       customParams: {
         ...rest,
         proxyName,
+        ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), false),
         dns_server: dns_server.join(', '),
         encrypt_dns_server: getEncryptDNS('surge').join(', '),
-        isMac: false,
         isSmart: true,
-        allSelect: defaultSelect.getAllSelect('surge'),
-        allIncludeGroup: defaultSelect.getAllIncludeGroup('surge'),
+        allSelect: getAllSelect('surge'),
+        allIncludeGroup: getAllIncludeGroup('surge'),
       },
     },
     {
@@ -89,13 +91,14 @@ module.exports = {
       dns_server,
       customParams: {
         ...rest,
+        clashSnippet: getRuleSnippet('clash', getAllSelect('clash'), getAllIncludeGroup('clash'), true),
         proxyName,
         dns_server,
         encrypt_dns_server: getEncryptDNS('clash'),
         dns: true,
         secret: 'thisisyoursecret',
         authentication: ['xiaokang:xiaokang666'],
-        allSelect: defaultSelect.getAllSelect('clash'),
+        allSelect: getAllSelect('clash'),
       },
     },
     {
@@ -105,11 +108,12 @@ module.exports = {
       combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
       customParams: {
         ...rest,
+        clashSnippet: getRuleSnippet('clash', getAllSelect('clash'), getAllIncludeGroup('clash'), true),
         dns_server,
         encrypt_dns_server: getEncryptDNS('clash'),
         proxyName,
         dns: true,
-        allSelect: defaultSelect.getAllSelect('clash'),
+        allSelect: getAllSelect('clash'),
       },
     },
   ],

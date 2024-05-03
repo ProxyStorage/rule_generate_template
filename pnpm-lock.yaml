@@ -20,6 +20,9 @@ dependencies:
   taze:
     specifier: ^0.13.8
     version: 0.13.8
+  yaml:
+    specifier: ^2.4.2
+    version: 2.4.2
 
 devDependencies:
   dotenv:

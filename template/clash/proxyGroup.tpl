@@ -6,61 +6,7 @@
   type: select
   proxies: {{ getClashNodeNames(nodeList,customFilters.all,[customParams.proxyName.HongKongSelect, customParams.proxyName.TaiWanSelect, customParams.proxyName.JapanSelect, customParams.proxyName.KoreaSelect, customParams.proxyName.SingaporeSelect, customParams.proxyName.AmericanSelect, customParams.proxyName.OtherSelect]) | json }}
 
-- name: {{ customParams.proxyName.BiliBili }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.Telegram }}
-  type: select
-  proxies: [{{ customParams.proxyName.Proxy }},{{ customParams.proxyName.Direct }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.Google }}
-  type: select
-  proxies: [{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.Microsoft }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-{% if customParams.PRIVATE_GIST_ID_COMPANY %}
-- name: {{ customParams.proxyName.Company }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-{% endif %}
-
-- name: {{ customParams.proxyName.Developer }}
-  type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all,[customParams.proxyName.HongKongSelect, customParams.proxyName.TaiWanSelect, customParams.proxyName.JapanSelect, customParams.proxyName.KoreaSelect, customParams.proxyName.SingaporeSelect, customParams.proxyName.AmericanSelect, customParams.proxyName.OtherSelect]) | json }}
-
-- name: {{ customParams.proxyName.Coze }}
-  type: select
-  proxies: [{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.OpenAI }}
-  type: select
-  proxies: [{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.Notion }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.TikTok }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-{% if customParams.PRIVATE_GIST_ID %}
-- name: {{ customParams.proxyName.Performance }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-{% endif %}
-
-- name: {{ customParams.proxyName.Emby }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
-
-- name: {{ customParams.proxyName.SpeedTest }}
-  type: select
-  proxies: [{{ customParams.proxyName.Direct }},{{ customParams.proxyName.Proxy }},{{ customParams.allSelect }}]
+{{ customParams.clashSnippet(getClashNodeNames(nodeList,customFilters.all,[])).proxyGroupSnippet }}
 
 - name: {{ customParams.proxyName.CCDN }}
   type: select
