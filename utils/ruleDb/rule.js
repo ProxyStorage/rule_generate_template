@@ -37,7 +37,7 @@ function getRuleList(platform = 'surge') {
           ip: generateRuleUrl('reject_tinygif', 'reject_tinygif_ip_rule', platform),
           asn: generateRuleUrl('reject_tinygif', 'reject_tinygif_ip_asn_rule', platform),
         },
-        proxyName: platform === 'clash' ? proxyName.Reject : 'REJECT-TINYGIF',
+        proxyName: platform === 'clash' ? proxyName.Reject : platform === 'loon' ? 'REJECT-IMG' : 'REJECT-TINYGIF',
       },
       {
         files: {
@@ -323,6 +323,7 @@ const blackProxyName = [
   proxyName.CCDN,
   proxyName.GCDN,
   'REJECT-TINYGIF',
+  'REJECT-IMG',
   'REJECT-DROP',
   'DIRECT',
   'REJECT',

@@ -1,10 +1,12 @@
 const surgeSnippet = require('./ruleDb/surge')
 const clashSnippet = require('./ruleDb/clash')
+const loonSnippet = require('./ruleDb/loon')
 
 function getRule(platform) {
   const rule = {
     surge: surgeSnippet,
     clash: clashSnippet,
+    loon: loonSnippet,
   }
   return rule[platform]
 }

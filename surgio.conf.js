@@ -116,6 +116,21 @@ module.exports = {
         allSelect: getAllSelect('clash'),
       },
     },
+    {
+      name: 'loon.conf',
+      template: 'loon',
+      provider: 'demo',
+      // combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
+      customParams: {
+        ...rest,
+        ...getRuleSnippet('loon', getAllSelect('loon'), getAllIncludeGroup('loon'), false),
+        dns_server,
+        encrypt_dns_server: getEncryptDNS('loon'),
+        proxyName,
+        dns: true,
+        allSelect: getAllSelect('loon'),
+      },
+    },
   ],
   /**
    * 订阅地址的前缀部分，以 / 结尾

@@ -1,0 +1,4 @@
+# Flower = https://sub.store/download/Flower-Trojan,parser-enabled = true,udp=true,fast-open=true,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/Twoandz9/Flowercloud.png
+# Fish = https://sub.store/download/fishport,parser-enabled = true,udp=true,fast-open=true,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/FishChips_01.png
+# Error is best = https://sub.store/download/Error,parser-enabled = true,udp=false,fast-open=false,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Loon_08.png
+# FishP = https://sub.store/download/fishport2,parser-enabled = true,udp=true,fast-open=true,vmess-aead=true,enabled=true,img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/FishChips_01.png

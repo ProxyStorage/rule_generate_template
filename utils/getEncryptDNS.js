@@ -39,7 +39,11 @@ module.exports = function getEncryptDNS(platform) {
 }
 
 function DNS(platform) {
-  const list = []
+  const listMap = {
+    doq: [],
+    doh: [],
+    doh3: [],
+  }
   const map = {
     doq: DOQ,
     doh: DOH,
@@ -49,15 +53,18 @@ function DNS(platform) {
     dnsConfigItem.type.forEach((type) => {
       if (map[type]) {
         const dnsStr = map[type](platform, dnsConfigItem.host)
-        list.push(dnsStr)
+        listMap[type].push(dnsStr)
       }
     })
   })
-  return list
+  if (platform === 'loon')
+    return listMap
+
+  return [Object.values(listMap).flat()]
 }
 /**
  *
- * @param {'surge'|'clash'} platform
+ * @param {'surge'|'clash'|'loon'} platform
  * @param {string} host
  * @returns
  */
@@ -66,11 +73,13 @@ function DOQ(platform, host) {
     return `quic://${host}`
   else if (platform === 'clash')
     return `quic://${host}`
+  else if (platform === 'loon')
+    return `quic://${host}`
 }
 
 /**
  *
- * @param {'surge'|'clash'} platform
+ * @param {'surge'|'clash'|'loon'} platform
  * @param {string} host
  * @returns
  */
@@ -79,11 +88,13 @@ function DOH(platform, host) {
     return `https://${host}/dns-query`
   else if (platform === 'clash')
     return `https://${host}/dns-query`
+  else if (platform === 'loon')
+    return `https://${host}/dns-query`
 }
 
 /**
  *
- * @param {'surge'|'clash'} platform
+ * @param {'surge'|'clash'|'loon'} platform
  * @param {string} host
  * @returns
  */
@@ -92,4 +103,6 @@ function DOH3(platform, host) {
     return `h3://${host}/dns-query`
   else if (platform === 'clash')
     return `https://${host}/dns-query#h3=true`
+  else if (platform === 'loon')
+    return `h3://${host}/dns-query`
 }
