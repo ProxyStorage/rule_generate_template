@@ -33,7 +33,7 @@ geoip-maxmind-url = https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.m
 
 udp-priority = true
 udp-policy-not-supported-behaviour = REJECT
-always-raw-tcp-hosts = www.google.com, 91.108.56.*, 91.108.4.*, 91.108.8.*, 91.108.16.*, 91.108.12.*, 149.154.16*, 149.154.17*, 91.108.20.*, 185.76.151.*, 91.105.192.*, 5.28.19*
+always-raw-tcp-hosts = www.google.com, 91.108.56.*, 91.108.4.*, 91.108.8.*, 91.108.16.*, 91.108.12.*, 149.154.16*, 149.154.17*, 91.108.20.*, 185.76.151.*, 91.105.192.*, 5.28.19*, 95.161.76.*
 wifi-assist = false
 http-api-tls = true
 use-local-host-item-for-proxy = true

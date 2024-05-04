@@ -1,6 +1,6 @@
 {% set isShowWarp = customParams.CF_WIREGUARD_PRIVATE_KEY and customParams.CF_WIREGUARD_PUBLICK_KEY %}
 
-{{ customParams.proxyName.Proxy }} = select, {{ customParams.proxyName.Select }}, {{ customParams.proxyName.Auto }}, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0
+{{ customParams.proxyName.Proxy }} = select, {{ customParams.proxyName.Select }},{{ customParams.proxyName.Warp+',' if isShowWarp else "" }} {{ customParams.proxyName.Auto }}, {{ customParams.proxyName.Direct }}, {{ customParams.proxyName.Reject }}, no-alert=0, hidden=0, include-all-proxies=0
 {{ customParams.proxyName.Select }} = select, {{ customParams.allSelect }}, update-interval=0, no-alert=0, hidden=0, include-other-group="{{ customParams.allIncludeGroup }}"
 
 {{ customParams.proxyGroupSnippet }}
