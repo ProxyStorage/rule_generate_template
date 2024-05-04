@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^2.16.1",
+    "@surgio/gateway": "^2.2.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.1.1",
-    "surgio": "^3.6.6",
+    "eslint": "^9.2.0",
+    "surgio": "^3.7.1",
     "taze": "^0.13.8",
     "yaml": "^2.4.2"
   },
