@@ -5,6 +5,7 @@ const proxyName = require('./constant/proxyName')
 const { getAllSelect, getAllIncludeGroup } = require('./constant/defaultSelect')
 const getEncryptDNS = require('./utils/getEncryptDNS')
 const getRuleSnippet = require('./utils/getSnippet')
+const { hostname, disabledHostName } = require('./utils/surgeHostName')
 const {
   SURGIO_URL_BASE,
   SURGIP_UPLOAD_PREFIX,
@@ -36,10 +37,10 @@ module.exports = {
       url: 'https://rule.acs.pw/clash/surgio/dnsMap.hosts.snippet',
       name: 'clashDnsMapHosts', // 模板中对应 remoteSnippets.clashDnsMapHosts
     },
-    {
-      url: 'https://rule.acs.pw/surge/surgio/disable-host-name.snippet',
-      name: 'surgeDisableHostName', // 模板中对应 remoteSnippets.surgeDisableHostName
-    },
+    // {
+    //   url: 'https://rule.acs.pw/surge/surgio/disable-host-name.snippet',
+    //   name: 'surgeDisableHostName', // 模板中对应 remoteSnippets.surgeDisableHostName
+    // },
   ],
   proxyTestUrl: 'http://latency-test.skk.moe/endpoint',
   internetTestUrl: 'http://connectivitycheck.platform.hicloud.com/generate_204',
@@ -58,8 +59,10 @@ module.exports = {
       combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
       customParams: {
         ...rest,
-        proxyName,
         ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), true),
+        hostname,
+        disabledHostName,
+        proxyName,
         dns_server: dns_server.join(', '),
         encrypt_dns_server: getEncryptDNS('surge').join(', '),
         isSmart: true,
@@ -74,8 +77,10 @@ module.exports = {
       combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
       customParams: {
         ...rest,
-        proxyName,
         ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), false),
+        proxyName,
+        hostname,
+        disabledHostName,
         dns_server: dns_server.join(', '),
         encrypt_dns_server: getEncryptDNS('surge').join(', '),
         isSmart: true,
