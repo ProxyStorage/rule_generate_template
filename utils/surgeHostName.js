@@ -20,6 +20,10 @@ const disableHostName = [
   // 腾讯
   'safebrowsing.urlsec.qq.com',
   'wetype.weixin.qq.com',
+  // 阿里
+  'g.alicdn.com',
+  // 百度
+  'zz.bdstatic.com',
   // google
   'www.google.com',
   // 其他
