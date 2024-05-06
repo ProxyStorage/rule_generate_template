@@ -1,7 +1,7 @@
 const proxyName = require('./proxyName.js')
 const { CF_WIREGUARD_PUBLICK_KEY, CF_WIREGUARD_PRIVATE_KEY } = require('./config.js')
 
-const { Warp, Select, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect } = proxyName
+const { Warp, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect } = proxyName
 /**
  * 获取所有的select
  * @param {'surge'|'loon'|'clash'} platform 平台
@@ -9,18 +9,18 @@ const { Warp, Select, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, Si
 function getAllSelect(platform) {
   const select = [HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect]
   let str = ''
-  if (['surge', 'loon'].includes(platform) && CF_WIREGUARD_PUBLICK_KEY && CF_WIREGUARD_PRIVATE_KEY)
+  if (['surge', 'loon'].includes(platform) && CF_WIREGUARD_PUBLICK_KEY && CF_WIREGUARD_PRIVATE_KEY){
     select.push(Warp)
+    str = select.map(item => `${item}`).join(', ')
+    return str
+  }
 
   if (['clash'].includes(platform))
-    select.unshift(Select)
-
-  str = select.map(item => `${item}`).join(', ')
-  return str
+    return (...arg)=>[...arg,...select]
 }
 
 /**
- * 获取所有的select
+ * 获取所有的节点
  * @param {'surge'|'loon'|'clash'} platform 平台
  */
 function getAllIncludeGroup(platform) {

@@ -101,7 +101,7 @@ function clashSnippet(allSelect, allIncludeGroup, isPc = true) {
       proxyGroupList.push({
         name,
         type: 'select',
-        proxies: [proxyName.Proxy, proxyName.Direct, ...allSelect.split(',').map(item => item.trim()), ...allProxy],
+        proxies: [...allSelect(proxyName.Proxy, proxyName.Direct).map(item => item.trim()), ...allProxy],
       })
     })
     const ruleList = [...domainRuleList, ...noIPRuleList, ...ipRuleList]

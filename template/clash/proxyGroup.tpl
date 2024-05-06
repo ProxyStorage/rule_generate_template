@@ -4,17 +4,17 @@
 
 - name: {{ customParams.proxyName.Select }}
   type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all,[customParams.proxyName.HongKongSelect, customParams.proxyName.TaiWanSelect, customParams.proxyName.JapanSelect, customParams.proxyName.KoreaSelect, customParams.proxyName.SingaporeSelect, customParams.proxyName.AmericanSelect, customParams.proxyName.OtherSelect]) | json }}
+  proxies: {{ getClashNodeNames(nodeList,customFilters.allNotSelectFilter,customParams.allSelect()) | json }}
 
 {{ customParams.clashSnippet(getClashNodeNames(nodeList,customFilters.all,[])).proxyGroupSnippet }}
 
 - name: {{ customParams.proxyName.CCDN }}
   type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all,['DIRECT', customParams.proxyName.HongKongSelect, customParams.proxyName.TaiWanSelect, customParams.proxyName.JapanSelect, customParams.proxyName.KoreaSelect, customParams.proxyName.SingaporeSelect, customParams.proxyName.AmericanSelect, customParams.proxyName.OtherSelect]) | json }}
+  proxies: {{ getClashNodeNames(nodeList,customFilters.all,customParams.allSelect('DIRECT')) | json }}
 
 - name: {{ customParams.proxyName.GCDN }}
   type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all,[customParams.proxyName.HongKongSelect, customParams.proxyName.TaiWanSelect, customParams.proxyName.JapanSelect, customParams.proxyName.KoreaSelect, customParams.proxyName.SingaporeSelect, customParams.proxyName.AmericanSelect, customParams.proxyName.OtherSelect]) | json }}
+  proxies: {{ getClashNodeNames(nodeList,customFilters.all,customParams.allSelect()) | json }}
 
 - name: {{ customParams.proxyName.Reject }}
   type: select
@@ -30,7 +30,7 @@
 
 - name: {{ customParams.proxyName.Final }}
   type: select
-  proxies: {{ getClashNodeNames(nodeList,customFilters.all,[customParams.proxyName.Proxy,customParams.proxyName.Direct,customParams.proxyName.Reject,customParams.proxyName.HongKongSelect,customParams.proxyName.TaiWanSelect,customParams.proxyName.JapanSelect,customParams.proxyName.KoreaSelect,customParams.proxyName.SingaporeSelect,customParams.proxyName.AmericanSelect,customParams.proxyName.OtherSelect]) | json }}
+  proxies: {{ getClashNodeNames(nodeList,customFilters.all,customParams.allSelect(customParams.proxyName.Proxy,customParams.proxyName.Direct,customParams.proxyName.Reject)) | json }}
 
 - name: {{ customParams.proxyName.HongKongSelect }}
   type: select
