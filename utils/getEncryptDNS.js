@@ -60,7 +60,7 @@ function DNS(platform) {
   if (platform === 'loon')
     return listMap
 
-  return [Object.values(listMap).flat()]
+  return Object.values(listMap).flat()
 }
 /**
  *
