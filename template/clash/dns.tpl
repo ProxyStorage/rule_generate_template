@@ -7,6 +7,8 @@ dns:
   fallback: 
     - https://8.8.8.8/dns-query
     - https://8.8.4.4/dns-query
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
     {{ (customParams.encrypt_dns_server | yaml) | indent(4)}}
   fallback-filter:
     geoip: true
