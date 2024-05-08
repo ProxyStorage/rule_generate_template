@@ -6,6 +6,7 @@ const { getAllSelect, getAllIncludeGroup } = require('./constant/defaultSelect')
 const getEncryptDNS = require('./utils/getEncryptDNS')
 const getRuleSnippet = require('./utils/getSnippet')
 const { hostname, disabledHostName } = require('./utils/surgeHostName')
+const { dns } = require('./constant/dns')
 const {
   SURGIO_URL_BASE,
   SURGIP_UPLOAD_PREFIX,
@@ -15,9 +16,9 @@ const {
   SURGIP_UPLOAD_ACCESS_KEY_SECRET,
   ...rest
 
-} = require('./constant/config')
+} = require('./constant/env')
 
-const dns_server = ['223.5.5.5', '223.6.6.6', '119.29.29.29', '114.114.114.114']
+const dns_server = dns
 // const surgeSnippet = surgeSnippet( getAllSelect('surge'),getAllIncludeGroup('surge'))
 
 /**

@@ -1,5 +1,5 @@
 const proxyName = require('./proxyName.js')
-const { CF_WIREGUARD_PUBLICK_KEY, CF_WIREGUARD_PRIVATE_KEY } = require('./config.js')
+const { CF_WIREGUARD_PUBLICK_KEY, CF_WIREGUARD_PRIVATE_KEY } = require('./env.js')
 
 const { Warp, HongKongSelect, TaiWanSelect, JapanSelect, KoreaSelect, SingaporeSelect, AmericanSelect, EuropeSelect, OtherSelect, SubNodesSelect } = proxyName
 /**

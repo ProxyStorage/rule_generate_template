@@ -1,4 +1,4 @@
-const { PRIVATE_GIST_ID, PRIVATE_GIST_ID_COMPANY } = require('../../constant/config')
+const { PRIVATE_GIST_ID, PRIVATE_GIST_ID_COMPANY } = require('../../constant/env')
 const proxyName = require('../../constant/proxyName')
 
 function generateRuleUrl(folder, fileName, platform = 'surge') {
