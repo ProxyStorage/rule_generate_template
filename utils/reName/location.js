@@ -1,5 +1,15 @@
 const locationList = [
   {
+    zh: 'EMBY',
+    enShort: 'EMBY',
+    enFull: 'EMBY',
+    reg: 'EMBY',
+    custom: 'EMBY',
+    flag: '🏴‍☠️',
+    enShortThree: '',
+    ignoreFlag: true,
+  },
+  {
     zh: '懒人节点',
     enShort: 'lazy',
     enFull: 'lazy person',
