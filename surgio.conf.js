@@ -1,12 +1,8 @@
 'use strict'
 
 const { utils } = require('surgio')
-const proxyName = require('./constant/proxyName')
-const { getAllSelect, getAllIncludeGroup } = require('./constant/defaultSelect')
-const getEncryptDNS = require('./utils/getEncryptDNS')
-const getRuleSnippet = require('./utils/getSnippet')
-const { hostname, disabledHostName } = require('./utils/surgeHostName')
-const { dns } = require('./constant/dns')
+const { getSurgeConfig, getClashConfig, getLoonConfig } = require('./utils/getCustomParams')
+
 const {
   SURGIO_URL_BASE,
   SURGIP_UPLOAD_PREFIX,
@@ -14,11 +10,8 @@ const {
   SURGIO_UPLOAD_REGION,
   SURGIP_UPLOAD_ACCESS_KEY_ID,
   SURGIP_UPLOAD_ACCESS_KEY_SECRET,
-  ...rest
-
 } = require('./constant/env')
 
-const dns_server = dns
 // const surgeSnippet = surgeSnippet( getAllSelect('surge'),getAllIncludeGroup('surge'))
 
 /**
@@ -59,16 +52,7 @@ module.exports = {
       provider: 'flower',
       combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
-        ...rest,
-        ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), true),
-        hostname,
-        disabledHostName,
-        proxyName,
-        dns_server: dns_server.join(', '),
-        encrypt_dns_server: getEncryptDNS('surge').join(', '),
-        isSmart: true,
-        allSelect: getAllSelect('surge'),
-        allIncludeGroup: getAllIncludeGroup('surge'),
+        ...getSurgeConfig(false),
       },
     },
     {
@@ -77,16 +61,7 @@ module.exports = {
       provider: 'flower',
       combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
-        ...rest,
-        ...getRuleSnippet('surge', getAllSelect('surge'), getAllIncludeGroup('surge'), false),
-        proxyName,
-        hostname,
-        disabledHostName,
-        dns_server: dns_server.join(', '),
-        encrypt_dns_server: getEncryptDNS('surge').join(', '),
-        isSmart: true,
-        allSelect: getAllSelect('surge'),
-        allIncludeGroup: getAllIncludeGroup('surge'),
+        ...getSurgeConfig(true),
       },
     },
     {
@@ -94,17 +69,10 @@ module.exports = {
       template: 'clash',
       provider: 'flower',
       combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
-      dns_server,
       customParams: {
-        ...rest,
-        clashSnippet: getRuleSnippet('clash', getAllSelect('clash'), getAllIncludeGroup('clash'), true),
-        proxyName,
-        dns_server,
-        encrypt_dns_server: getEncryptDNS('clash'),
-        dns: true,
+        ...getClashConfig(),
         secret: 'thisisyoursecret',
         authentication: ['xiaokang:xiaokang666'],
-        allSelect: getAllSelect('clash'),
       },
     },
     {
@@ -113,13 +81,7 @@ module.exports = {
       provider: 'flower',
       combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
-        ...rest,
-        clashSnippet: getRuleSnippet('clash', getAllSelect('clash'), getAllIncludeGroup('clash'), true),
-        dns_server,
-        encrypt_dns_server: getEncryptDNS('clash'),
-        proxyName,
-        dns: true,
-        allSelect: getAllSelect('clash'),
+        ...getClashConfig(),
       },
     },
     {
@@ -128,13 +90,7 @@ module.exports = {
       provider: 'demo',
       // combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
       customParams: {
-        ...rest,
-        ...getRuleSnippet('loon', getAllSelect('loon'), getAllIncludeGroup('loon'), false),
-        dns_server,
-        encrypt_dns_server: getEncryptDNS('loon'),
-        proxyName,
-        dns: true,
-        allSelect: getAllSelect('loon'),
+        ...getLoonConfig(),
       },
     },
   ],

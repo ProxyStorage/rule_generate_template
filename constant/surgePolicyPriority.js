@@ -1,10 +1,9 @@
-const list = [
-  ['「Flower」', 0.5],
-  ['「FishP」', 9999],
-  ['「Fish」', 0.6],
-  ['「Cat」', 0.4],
+module.exports = [
   ['「Error」', 0.3],
+  ['「Cat」', 0.4],
+  ['「Flower」', 0.5],
+  ['「Fish」', 0.6],
+  ['「FishP」', 9999],
   ['「MoJie」', 9999],
 ]
-
-module.exports = list.map(([name, priority]) => `${name}:${priority}`).join(';')
+// list.map(([name, priority]) => `${name}:${priority}`).join(';')
