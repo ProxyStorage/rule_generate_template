@@ -50,7 +50,7 @@ module.exports = {
       name: 'Surge_Pro_Mac.conf',
       template: 'surge',
       provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      combineProviders: ['fishport', 'fishportP', 'error', 'cat'],
       customParams: {
         ...getSurgeConfig(false),
       },
@@ -59,7 +59,7 @@ module.exports = {
       name: 'Surge_Pro_Mobile.conf',
       template: 'surge',
       provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      combineProviders: ['fishport', 'fishportP', 'error', 'cat'],
       customParams: {
         ...getSurgeConfig(true),
       },
@@ -68,7 +68,7 @@ module.exports = {
       name: 'config.yaml',
       template: 'clash',
       provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      combineProviders: ['fishport', 'fishportP', 'error', 'cat'],
       customParams: {
         ...getClashConfig(),
         secret: 'thisisyoursecret',
@@ -79,7 +79,7 @@ module.exports = {
       name: 'config_local_combine.yaml',
       template: 'clash',
       provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      combineProviders: ['fishport', 'fishportP', 'error', 'cat'],
       customParams: {
         ...getClashConfig(),
       },
@@ -88,7 +88,7 @@ module.exports = {
       name: 'loon.conf',
       template: 'loon',
       provider: 'demo',
-      // combineProviders: ['fishport', 'fishportP', 'error', 'mojie'],
+      // combineProviders: ['fishport', 'fishportP', 'error'],
       customParams: {
         ...getLoonConfig(),
       },
