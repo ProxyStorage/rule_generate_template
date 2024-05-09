@@ -54,7 +54,7 @@ module.exports = {
     {
       name: 'Surge_Pro_Mac.conf',
       template: 'surge',
-      provider: 'subStore',
+      provider: 'substore',
       // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getSurgeConfig(false),
@@ -63,7 +63,7 @@ module.exports = {
     {
       name: 'Surge_Pro_Mobile.conf',
       template: 'surge',
-      provider: 'subStore',
+      provider: 'substore',
       // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getSurgeConfig(true),
@@ -72,7 +72,7 @@ module.exports = {
     {
       name: 'config.yaml',
       template: 'clash',
-      provider: 'subStore',
+      provider: 'substore',
       // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getClashConfig(),
@@ -83,7 +83,7 @@ module.exports = {
     {
       name: 'config_local_combine.yaml',
       template: 'clash',
-      provider: 'subStore',
+      provider: 'substore',
       // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getClashConfig(),
