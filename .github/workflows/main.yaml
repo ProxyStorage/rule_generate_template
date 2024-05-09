@@ -49,16 +49,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      # - name: init Sub-Store Env
-      #   run: |
-      #     # wget  -P ./subStore/ -N https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.min.js
+      - name: init Sub-Store Env
+        run: |
+          # wget  -P ./subStore/ -N https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.min.js
+          nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
       
       - name: Generate rules
         run: |
           export TZ='Asia/Shanghai'
-          # nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
-          node ./subStore/sub-store.min.js
-          ls 
+          sleep 2
           cat sub-store.log
           node ./scripts/init-substore.js
           npm run generate
