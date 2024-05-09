@@ -60,6 +60,10 @@ jobs:
           export TZ='Asia/Shanghai'
           pwd
           ls
+          cd provider
+          ls
+          pwd
+          cd ..
           npm run generate
           npm run no-empty-line
           npm run upload
