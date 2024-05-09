@@ -53,17 +53,11 @@ jobs:
         run: |
           # wget  -P ./subStore/ -N https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.min.js
           nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
-          node ./scripts/init-substore.js
-      
+          
       - name: Generate rules
         run: |
           export TZ='Asia/Shanghai'
-          pwd
-          ls
-          cd provider
-          ls
-          pwd
-          cd ..
+          node ./scripts/init-substore.js
           npm run generate
           npm run no-empty-line
           npm run upload
