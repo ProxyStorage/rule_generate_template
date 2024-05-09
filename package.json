@@ -5,16 +5,17 @@
   "scripts": {
     "test": "node ./utils/getRule.js",
     "no-empty-line": "node ./scripts/no-empty-line.js",
-    "generate": "cross-env SURGIO_NETWORK_TIMEOUT=50000 surgio generate",
+    "generate": "cross-env SURGIO_NETWORK_TIMEOUT=50000 surgio generate --skip-lint",
     "upload": "surgio upload",
     "update": "taze major -I"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^2.16.1",
+    "@antfu/eslint-config": "^2.17.0",
     "@surgio/gateway": "^2.2.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.2.0",
-    "surgio": "^3.7.1",
+    "request": "^2.88.2",
+    "surgio": "^3.8.1",
     "taze": "^0.13.8",
     "yaml": "^2.4.2"
   },

@@ -130,4 +130,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-provider
+
+# sub-store 
+sub-store.json
+root.json
+sub-store.log

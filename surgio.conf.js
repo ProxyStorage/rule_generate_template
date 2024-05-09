@@ -18,6 +18,11 @@ const {
  * 使用文档：https://surgio.js.org/
  */
 module.exports = {
+  clashConfig: {
+    enableHysteria2: true,
+    enableVless: true,
+    clashCore: 'clash.meta',
+  },
   /**
    * 远程片段
    * 文档：https://surgio.js.org/guide/custom-config.html#remotesnippets
@@ -49,8 +54,8 @@ module.exports = {
     {
       name: 'Surge_Pro_Mac.conf',
       template: 'surge',
-      provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      provider: 'subStore',
+      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getSurgeConfig(false),
       },
@@ -58,8 +63,8 @@ module.exports = {
     {
       name: 'Surge_Pro_Mobile.conf',
       template: 'surge',
-      provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      provider: 'subStore',
+      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getSurgeConfig(true),
       },
@@ -67,8 +72,8 @@ module.exports = {
     {
       name: 'config.yaml',
       template: 'clash',
-      provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      provider: 'subStore',
+      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getClashConfig(),
         secret: 'thisisyoursecret',
@@ -78,8 +83,8 @@ module.exports = {
     {
       name: 'config_local_combine.yaml',
       template: 'clash',
-      provider: 'flower',
-      combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
+      provider: 'subStore',
+      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
       customParams: {
         ...getClashConfig(),
       },
