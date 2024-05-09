@@ -58,6 +58,8 @@ jobs:
       - name: Generate rules
         run: |
           export TZ='Asia/Shanghai'
+          pwd
+          ls
           npm run generate
           npm run no-empty-line
           npm run upload
