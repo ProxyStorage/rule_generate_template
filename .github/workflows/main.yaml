@@ -57,7 +57,8 @@ jobs:
         run: |
           export TZ='Asia/Shanghai'
           nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
-          ls
+          ls 
+          cat sub-store.log
           node ./scripts/init-substore.js
           npm run generate
           npm run no-empty-line
