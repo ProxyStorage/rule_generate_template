@@ -56,7 +56,8 @@ jobs:
       - name: Generate rules
         run: |
           export TZ='Asia/Shanghai'
-          nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
+          # nohup node ./subStore/sub-store.min.js > sub-store.log 2>&1 &
+          node ./subStore/sub-store.min.js
           ls 
           cat sub-store.log
           node ./scripts/init-substore.js
