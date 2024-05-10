@@ -45,4 +45,5 @@ module.exports = {
   AmericanSelect: '🇺🇸 American',
   EuropeSelect: '🇪🇺 Europe',
   OtherSelect: '🏴‍☠️ Other-Area',
+  LowMagnification: '↓ low-magnification',
 }

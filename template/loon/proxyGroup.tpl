@@ -18,3 +18,4 @@
 {{ customParams.proxyName.SingaporeSelect }} = select,Singapore,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/SG.png
 {{ customParams.proxyName.AmericanSelect }} = select,American,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/US.png
 {{ customParams.proxyName.OtherSelect }} = select,Other,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/Twoandz9/Xiaoheizi.png
+{{ customParams.proxyName.LowMagnification }} = select,LowMagnification,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/Twoandz9/Xiaoheizi.png

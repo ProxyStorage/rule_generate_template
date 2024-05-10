@@ -67,3 +67,7 @@
 - name: {{ customParams.proxyName.SubNodesSelect }}
   type: select
   proxies: {{ getClashNodeNames(nodeList,customFilters.all,[]) | json }}
+
+- name: {{ customParams.proxyName.LowMagnification }}
+  type: select
+  proxies: {{ getClashNodeNames(nodeList,customFilters.LowMagnificationFilter,[]) | json }}

@@ -7,3 +7,4 @@ American = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美|波特兰|达拉斯|�
 Singapore = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|SG|Singapore)).*$"
 Other = NameRegex, FilterKey = "^(?!.*((?i)🇭🇰|🇨🇳|🇯🇵|🇰🇷|🇸🇬|🇺🇸|netease|traffic|expire)).*$"
 unblock = NameRegex, FilterKey = "(?i)(unblock|music|云音乐)"
+LowMagnification = NameRegex, FilterKey = "^(?=.*((?i)↓)).*$"
