@@ -29,7 +29,8 @@ hijack-dns = 8.8.8.8:53, 8.8.4.4:53
 dns-server = {{ customParams.dns_server }}
 encrypted-dns-follow-outbound-mode = true
 encrypted-dns-server = {{customParams.encrypt_dns_server}}
-geoip-maxmind-url = https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb
+# geoip-maxmind-url = https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb
+geoip-maxmind-url = https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/Country.mmdb
 
 udp-priority = true
 udp-policy-not-supported-behaviour = REJECT
