@@ -117,10 +117,10 @@ function getRuleList(platform = 'surge') {
       },
       {
         files: {
-          domain: generateRuleUrl('github', 'domestic_domain', platform),
-          noIp: generateRuleUrl('github', 'domestic_no_ip_rule', platform),
-          ip: generateRuleUrl('github', 'domestic_ip_rule', platform),
-          asn: generateRuleUrl('github', 'domestic_ip_asn_rule', platform),
+          domain: generateRuleUrl('github', 'github_domain', platform),
+          noIp: generateRuleUrl('github', 'github_no_ip_rule', platform),
+          ip: generateRuleUrl('github', 'github_ip_rule', platform),
+          asn: generateRuleUrl('github', 'github_ip_asn_rule', platform),
         },
         proxyName: proxyName.Direct,
       }
