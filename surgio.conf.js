@@ -29,6 +29,10 @@ module.exports = {
    */
   remoteSnippets: [
     {
+      url: 'https://rule.acs.pw/clash/surgio/dnsMap.github.snippet',
+      name: 'clashDnsMapGithub', // 模板中对应 remoteSnippets.clashDnsMapGithub
+    },
+    {
       url: 'https://rule.acs.pw/clash/surgio/dnsMap.snippet',
       name: 'clashDnsMap', // 模板中对应 remoteSnippets.clashDnsMap
     },

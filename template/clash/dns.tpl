@@ -130,3 +130,4 @@ dns:
     - 'WORKGROUP'
   nameserver-policy:
     {{ remoteSnippets.clashDnsMap.text | indent(4) }}
+    {{ remoteSnippets.clashDnsMapGithub.text | indent(4) }}

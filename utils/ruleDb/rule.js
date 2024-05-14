@@ -115,6 +115,15 @@ function getRuleList(platform = 'surge') {
         },
         proxyName: proxyName.Direct,
       },
+      {
+        files: {
+          domain: generateRuleUrl('github', 'domestic_domain', platform),
+          noIp: generateRuleUrl('github', 'domestic_no_ip_rule', platform),
+          ip: generateRuleUrl('github', 'domestic_ip_rule', platform),
+          asn: generateRuleUrl('github', 'domestic_ip_asn_rule', platform),
+        },
+        proxyName: proxyName.Direct,
+      }
     ],
     // 一些国外 APP 的配置（用于 APP 软件分流）
     globalApp: [
