@@ -2,9 +2,6 @@
 
 {% include "clash/general.tpl" %}
 
-hosts:
-  {{ remoteSnippets.clashDnsMapHostsGithub.text | indent(2) }}
-
 proxies: {{ getClashNodes(nodeList) | json }}
 
 proxy-groups:
