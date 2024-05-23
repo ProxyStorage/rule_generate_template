@@ -1,8 +1,8 @@
 'use strict'
 
 const { utils } = require('surgio')
-const { getSurgeConfig, getClashConfig, getLoonConfig } = require('./utils/getCustomParams')
-
+const { getClashConfig, getLoonConfig } = require('./utils/getCustomParams')
+const { getSurgeSnippet } = require('./snippet/surge')
 const {
   SURGIO_URL_BASE,
   SURGIP_UPLOAD_PREFIX,
@@ -59,20 +59,14 @@ module.exports = {
     {
       name: 'Surge_Pro_Mac.conf',
       template: 'surge',
-      provider: 'subStore',
-      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
-      customParams: {
-        ...getSurgeConfig(false),
-      },
+      provider: 'demo',
+      customParams: getSurgeSnippet(true),
     },
     {
       name: 'Surge_Pro_Mobile.conf',
       template: 'surge',
-      provider: 'subStore',
-      // combineProviders: ['fishport', 'fishportP', 'error', 'cat', 'mojie'],
-      customParams: {
-        ...getSurgeConfig(true),
-      },
+      provider: 'demo',
+      customParams: getSurgeSnippet(false),
     },
     {
       name: 'config.yaml',
