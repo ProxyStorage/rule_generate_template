@@ -115,15 +115,6 @@ function getRuleList(platform = 'surge') {
         },
         proxyName: proxyName.Direct,
       },
-      {
-        files: {
-          domain: generateRuleUrl('github', 'github_domain', platform),
-          noIp: generateRuleUrl('github', 'github_no_ip_rule', platform),
-          ip: generateRuleUrl('github', 'github_ip_rule', platform),
-          asn: generateRuleUrl('github', 'github_ip_asn_rule', platform),
-        },
-        proxyName: proxyName.Direct,
-      }
     ],
     // 一些国外 APP 的配置（用于 APP 软件分流）
     globalApp: [
@@ -208,6 +199,15 @@ function getRuleList(platform = 'surge') {
           asn: generateRuleUrl('tiktok', 'tiktok_ip_asn_rule', platform),
         },
         proxyName: proxyName.TikTok,
+      },
+      {
+        files: {
+          domain: generateRuleUrl('github', 'github_domain', platform),
+          noIp: generateRuleUrl('github', 'github_no_ip_rule', platform),
+          ip: generateRuleUrl('github', 'github_ip_rule', platform),
+          asn: generateRuleUrl('github', 'github_ip_asn_rule', platform),
+        },
+        proxyName: proxyName.Developer,
       },
       {
         files: {
