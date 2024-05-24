@@ -24,6 +24,8 @@ const { getConfig } = require('./config/index')
  * @returns string
  */
 function getProxyGroupConfig(name, options = {}) {
+  if (!name)
+    return ''
   const config = {
     'type': 'select',
     'policy-group': `${proxyNameConfig.Proxy.name}, ${proxyNameConfig.Direct.name}, ${getAllSelect('surge')}, ${proxyNameConfig.Reject.name}`,
@@ -47,6 +49,7 @@ function getProxyGroupConfig(name, options = {}) {
     if (!(value === null || ['type', 'policy-group'].includes(key)))
       list.push(`${key}=${value}`)
   })
+
   return list.join(', ')
 }
 

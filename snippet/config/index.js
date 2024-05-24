@@ -34,7 +34,7 @@ function getRuleConfig(
     },
 
     {
-      proxyName: platform === 'clash' ? proxyNameConfig.Reject.name : platform === 'loon' ? 'REJECT-IMG' : 'REJECT-TINYGIF',
+      proxyName: platform === 'clash' ? proxyNameConfig.Reject.name : (platform === 'loon' ? 'REJECT-IMG' : 'REJECT-TINYGIF'),
       rule: {
         domain: generateRuleUrl('reject_tinygif', 'reject_tinygif_domain', platform),
         noIp: generateRuleUrl('reject_tinygif', 'reject_tinygif_no_ip_rule', platform),
@@ -379,12 +379,15 @@ function getConfig(isPc = true, platform = 'surge') {
     const configItem = config[i]
     if (!blackProxyName.includes(configItem.proxyName) && !proxyNameConfig[configItem.proxyName]) {
       const staticDataIndex = Object.values(proxyNameConfig).findIndex(val => val.name === configItem.proxyName)
-      proxyNameMap.set(Object.keys(proxyNameConfig)[staticDataIndex], {
-        // originName: Object.keys(proxyNameConfig)[staticDataIndex],
-        name: configItem.proxyName,
-        sort: staticDataIndex,
-        proxyOptions: Object.values(proxyNameConfig)[staticDataIndex]?.proxyOptions || {},
-      })
+      const key = Object.keys(proxyNameConfig)[staticDataIndex]
+      if (key) {
+        proxyNameMap.set(Object.keys(proxyNameConfig)[staticDataIndex], {
+          // originName: Object.keys(proxyNameConfig)[staticDataIndex],
+          name: configItem.proxyName,
+          sort: staticDataIndex,
+          proxyOptions: Object.values(proxyNameConfig)[staticDataIndex]?.proxyOptions || {},
+        })
+      }
     }
     if (configItem?.rule?.domain)
       domainRuleList.push(`DOMAIN-SET,${configItem.rule.domain},${configItem.proxyName}`)
