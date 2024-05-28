@@ -18,6 +18,7 @@ const proxyNameConfig = {
   Coze: { name: '👽 Coze' },
   OpenAI: { name: '🎉 OpenAI' },
   Developer: { name: '👨‍💻 Developer' },
+  Spotify: { name: '🎶 Spotify' },
   Emby: { name: '🎞 Emby' },
   Performance: { name: '💪 Performance' },
   Telegram: { name: '✈️ Telegram' },
@@ -33,7 +34,6 @@ const proxyNameConfig = {
   OneDrive: { name: '📁 OneDrive' },
   Microsoft: { name: 'Ⓜ️ Microsoft' },
   Download: { name: '⬇️ Download' },
-  Spotify: { name: '🎶 Spotify' },
   Reddit: { name: '🤖 Reddit' },
   Game: { name: '🎮 Game' },
   SpeedTest: { name: '🚀 SpeedTest' },
@@ -75,7 +75,6 @@ const proxyNameConfig = {
       'policy-priority': policyPriority,
     },
   },
-
   JapanSelect: {
     name: '🇯🇵 Japan',
     proxyOptions: {
@@ -85,7 +84,6 @@ const proxyNameConfig = {
       'policy-priority': policyPriority,
     },
   },
-
   KoreaSelect: {
     name: '🇰🇷 Korea',
     proxyOptions: {
@@ -95,7 +93,6 @@ const proxyNameConfig = {
       'policy-priority': policyPriority,
     },
   },
-
   SingaporeSelect: {
     name: '🇸🇬 Singapore',
     proxyOptions: {
