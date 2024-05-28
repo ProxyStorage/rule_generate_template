@@ -255,6 +255,16 @@ function getRuleConfig(
       },
     },
     {
+      proxyName: proxyNameConfig.Spotify.name,
+      rule: {
+        domain: generateRuleUrl('spotify', 'spotify_domain', platform),
+        noIp: generateRuleUrl('spotify', 'spotify_no_ip_rule', platform),
+        ip: generateRuleUrl('spotify', 'spotify_ip_rule', platform),
+        asn: generateRuleUrl('spotify', 'spotify_ip_asn_rule', platform),
+        processName: generateRuleUrl('spotify', 'spotify_process_name', platform),
+      },
+    },
+    {
       proxyName: proxyNameConfig.Emby.name,
       rule: {
         domain: generateRuleUrl('stream', 'stream_domain', platform),
