@@ -117,15 +117,6 @@ function getRuleConfig(
         asn: generateRuleUrl('domestic', 'domestic_ip_asn_rule', platform),
       },
     },
-    {
-      proxyName: proxyNameConfig.Direct.name,
-      rule: {
-        domain: generateRuleUrl('github', 'github_domain', platform),
-        noIp: generateRuleUrl('github', 'github_no_ip_rule', platform),
-        ip: generateRuleUrl('github', 'github_ip_rule', platform),
-        asn: generateRuleUrl('github', 'github_ip_asn_rule', platform),
-      },
-    },
 
     {
       proxyName: proxyNameConfig.Coze.name,
