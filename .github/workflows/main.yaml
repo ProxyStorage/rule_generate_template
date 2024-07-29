@@ -2,7 +2,7 @@ name: generate-rules
 
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '5 */12 * * *'
   workflow_dispatch:
   push:
     branches:
